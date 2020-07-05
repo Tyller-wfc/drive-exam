@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cn.wfc.driveexam.mapper.ExamMapper">
+
+    <resultMap id="baseMap" type="cn.wfc.driveexam.entity.Exam">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="exam_str" property="examStr" jdbcType="VARCHAR"/>
+        <result column="exam_url" property="examUrl" jdbcType="VARCHAR"/>
+        <result column="opts" property="opts" jdbcType="VARCHAR" typeHandler="cn.wfc.driveexam.util.OptsHandler"/>
+        <result column="answer" property="answer" jdbcType="VARCHAR"/>
+        <result column="type" property="type" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="findById" resultMap="baseMap">
+        select
+          id,exam_str,exam_url,opts,answer,type
+        from
+          exam
+         where id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="cn.wfc.driveexam.entity.Exam">
+        insert into exam(id,exam_str,exam_url,
+        <if test="opts!=null and opts!=''">
+            opts,
+        </if>
+        answer,type) values(
+        #{id},#{examStr},#{examUrl},
+        <if test="opts!='' and opts!=null">
+            #{opts,typeHandler=cn.wfc.driveexam.util.OptsHandler},
+        </if>
+        #{answer},#{type}
+        )
+    </insert>
+</mapper>
