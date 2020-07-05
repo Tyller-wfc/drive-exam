@@ -62,4 +62,9 @@ public class ExamServiceImpl implements ExamService {
     public Exam findById(String id) {
         return examMapper.findById(id);
     }
+
+    @Override
+    public int addError(String userId,String examId) {
+        return examMapper.addError(userId,examId);
+    }
 }

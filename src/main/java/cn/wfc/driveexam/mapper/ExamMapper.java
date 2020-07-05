@@ -6,4 +6,6 @@ public interface ExamMapper {
     Exam findById(String id);
 
     int insert(Exam exam);
+
+    int addError(String userId, String examId);
 }

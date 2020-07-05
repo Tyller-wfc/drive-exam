@@ -8,4 +8,6 @@ public interface ExamService {
     int insert() throws IOException;
 
     Exam findById(String id);
+
+    int addError(String userId,String examId);
 }

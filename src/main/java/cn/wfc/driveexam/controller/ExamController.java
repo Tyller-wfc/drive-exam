@@ -20,6 +20,18 @@ public class ExamController {
         return "index";
     }
 
+    @RequestMapping("/addError")
+    @ResponseBody
+    public int addError(String id) {
+        String userId = "wfc";
+        return examService.addError(userId,id);
+    }
+
+    @RequestMapping("/exam")
+    public String exam(){
+        return "exam";
+    }
+
     @RequestMapping("/findById")
     @ResponseBody
     public Exam findById(String id) {

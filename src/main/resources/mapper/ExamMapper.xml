@@ -33,4 +33,18 @@
         #{answer},#{type}
         )
     </insert>
+
+    <insert id="addError">
+        insert into user_error(
+        <if test="userId!=null and userId!=''">
+            user_id,
+        </if>
+        exam_id
+        )values(
+        <if test="userId!=null and userId!=''">
+            #{userId},
+        </if>
+        #{examId}
+        )
+    </insert>
 </mapper>
