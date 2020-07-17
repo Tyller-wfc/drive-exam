@@ -34,17 +34,26 @@
         )
     </insert>
 
+    <update id="updateError">
+        update user_error set times = times+1
+        where user_id = #{userId} and exam_id = #{examId}
+    </update>
+
     <insert id="addError">
         insert into user_error(
         <if test="userId!=null and userId!=''">
             user_id,
         </if>
-        exam_id
+        exam_id,times
         )values(
         <if test="userId!=null and userId!=''">
             #{userId},
         </if>
-        #{examId}
+        #{examId},1
         )
     </insert>
+    <select id="findError" resultType="map">
+        select user_id,exam_id,times from user_error
+        where user_id = #{userId} and exam_id = #{examId}
+    </select>
 </mapper>

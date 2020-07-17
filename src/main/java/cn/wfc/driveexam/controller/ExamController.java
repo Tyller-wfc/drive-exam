@@ -2,11 +2,9 @@ package cn.wfc.driveexam.controller;
 
 import cn.wfc.driveexam.entity.Exam;
 import cn.wfc.driveexam.service.ExamService;
+import cn.wfc.driveexam.util.SecurityUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -27,7 +25,7 @@ public class ExamController {
     @RequestMapping("/addError")
     @ResponseBody
     public int addError(String id) {
-        String userId = "wfc";
+        String userId = SecurityUtil.getCurrentUser();
         return examService.addError(userId, id);
     }
 
