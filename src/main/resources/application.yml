@@ -6,6 +6,10 @@ spring:
   thymeleaf:
     suffix: .html
     prefix: classpath:/templates/
+  security:
+    user:
+      name: wfc
+      password: 111
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   configuration:
