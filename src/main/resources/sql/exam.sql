@@ -1,4 +1,4 @@
-CREATE TABLE `NewTable` (
+CREATE TABLE `exam` (
 `id`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
 `exam_str`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
 `exam_url`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL ,
@@ -16,3 +16,11 @@ INSERT INTO `exam` VALUES ('1', '1.驾驶机动车遇到非机动车违法在机
 INSERT INTO `exam` VALUES ('2', '2.有这种信号灯的路口允许机动车如何行驶？', '2', 'A、向左转弯,B、直行通过,C、向右转弯,D、停车等待', 'A', 0);
 INSERT INTO `exam` VALUES ('3', '3.在交叉路口、隧道内均不能倒车。', NULL, '正确,错误', '正确', 1);
 INSERT INTO `exam` VALUES ('4', '4.如图所示，A车可以从左侧超越B车', '4', '正确,错误', '错误', 1);
+
+
+create table t_user
+(
+  username varchar(20)  null,
+  password varchar(100) null
+);
+INSERT INTO `t_user` (`username`, `password`) VALUES ('lf', '$2a$10$RvWBlVeT8MDGsPjzf.KAH.lwEEGhEEbIG99sY2UbrGlZ5JmFRnrgi');
